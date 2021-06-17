@@ -111,3 +111,5 @@ Realizuojant rūšiavimo algoritmą naudojant vieną konteinerį vietoj dviejų,
 * [v1.2](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.2) Realizuota "Rule of Three".
 
 * [v1.5](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.5) Sukurta bazinė abstrakčioji ir išvestinė klasės.
+
+* [v2.0](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v2.0) Padaryta doxygen dokumentacija (doxygen.rar), padaryta keletas unity testų.
