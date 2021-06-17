@@ -28,9 +28,11 @@ Vardenis    Pavardenis           6.75
 
 ## Programos įdiegimas
 
-### (1 būdas) Atsisiuntę pasirinktą programos versiją .zip formatu ją išarchyvuokite.    Programos kodą sukompiliuokite per komandinę eilutę arba per Jums patinkantį IDE (VSCode, Visual Studio, CodeBlocks, etc.)
+### (1 būdas) Atsisiuntę ``` Setup ``` aplanką ir paleidę vieną iš įdiegimo programų, turėsite ```.exe``` failą su kuriuo daug paprasčiau bus galima paleisti programą.
 
-### (2 būdas) Antran būdui naudosime programą CMake. Programoje ``` Where is the source code: ``` pasirinksime aplanką su visais programos failais, o eilutėje ``` Where to build binaries``` pasirinksime aplanką, kuriame atsiras mūsų programa.
+### (2 būdas) Atsisiuntę pasirinktą programos versiją .zip formatu ją išarchyvuokite.    Programos kodą sukompiliuokite per komandinę eilutę arba per Jums patinkantį IDE (VSCode, Visual Studio, CodeBlocks, etc.)
+
+### (3 būdas) Antran būdui naudosime programą CMake. Programoje ``` Where is the source code: ``` pasirinksime aplanką su visais programos failais, o eilutėje ``` Where to build binaries``` pasirinksime aplanką, kuriame atsiras mūsų programa.
 
 ![image](https://user-images.githubusercontent.com/78842398/122346664-e4a12a00-cf51-11eb-8e77-f095ad5e75b9.png)
 
@@ -113,3 +115,5 @@ Realizuojant rūšiavimo algoritmą naudojant vieną konteinerį vietoj dviejų,
 * [v1.5](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.5) Sukurta bazinė abstrakčioji ir išvestinė klasės.
 
 * [v2.0](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v2.0) Padaryta doxygen dokumentacija (doxygen.rar), padaryta keletas unity testų.
+
+* [v2.1](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v2.1) Sukurtas ``` setup.exe``` failas lengvesniam programos paleidimui.
