@@ -121,8 +121,6 @@ void generatedFileRead(T& studentai, int numm) {
         input.ignore(256, '\n');
     }
 
-
-    //
     input.close();
 
     cout << numm << " studentu nuskaitymas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;

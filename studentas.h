@@ -1,22 +1,21 @@
-#ifndef STUDENTASH
-#define STUDENTASH
+#ifndef STUDENTAS_H
+#define STUDENTAS_H
 
 #include <string>
 #include <vector>
+#include "Zmogus.h"
 using namespace std;
 
-class Studentas {
+class Studentas : public Zmogus {
 private:
-    string vardas;
-    string pavarde;
     vector<int> pazymiai;
     int egzaminas;
     double vidurkis;
 public:
-    Studentas() : vidurkis(0) { }
-    Studentas(string vardas, string pavarde, int egzaminas, vector<int> pazymiai);
+    Studentas() : vidurkis(0) { Zmogus::vardas = "", Zmogus::pavarde = ""; }
+    Studentas(string vardas, string pavarde, int egzaminas, vector<int> pazymiai) : vidurkis(0) { vardas = vardas; pavarde = pavarde; }
 
-    Studentas(const Studentas& a) : egzaminas(a.getEgzaminas()), vidurkis(a.getVidurkis()) {        // copy constructorius
+    Studentas(const Studentas& a) : egzaminas(a.getEgzaminas()), vidurkis(a.getVidurkis()) {
         vardas = a.getVardas();
         pavarde = a.getPavarde();
 
@@ -26,7 +25,7 @@ public:
         }
     }
 
-    Studentas& operator=(const Studentas& a) {          // copy assignment 
+    Studentas& operator=(const Studentas& a) {
         if (&a == this) return *this;
 
         vardas = a.getVardas();
@@ -42,17 +41,17 @@ public:
         return *this;
     }
 
-    ~Studentas() {}         // obj destruktorius
+    ~Studentas() {}
 
-   
-    inline string getVardas() const { return vardas; }
-    inline string getPavarde() const { return pavarde; }
+    //get
+    //inline string getVardas() const {return vardas; }
+    //inline string getPavarde() const {return pavarde; }
     inline vector<int> getPazymiai() const { return pazymiai; }
     inline int getEgzaminas() const { return egzaminas; }
     inline double getVidurkis() const { return vidurkis; }
-    
-    inline void setVardas(string vardas) { Studentas::vardas = vardas; }
-    inline void setPavarde(string pavarde) { Studentas::pavarde = pavarde; }
+    //set
+    //inline void setVardas(string vardas) {Studentas::vardas = vardas; }
+    //inline void setPavarde(string pavarde) {Studentas::pavarde = pavarde; }
     inline void setPazymiai(vector<int> pazymiai) { Studentas::pazymiai = pazymiai; }
     inline void setEgz(int egz) { Studentas::egzaminas = egz; }
     inline void setVidurkis(double vidurkis) { Studentas::vidurkis = vidurkis; }
