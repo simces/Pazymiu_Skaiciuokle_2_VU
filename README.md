@@ -106,6 +106,6 @@ Realizuojant rūšiavimo algoritmą naudojant vieną konteinerį vietoj dviejų,
 
 * [v1.0](https://github.com/simces/Pazymiu_Skaiciuokle/releases/tag/v1.0) Pridėta galimybė paleisti programą naudojant CMake, ištestuota veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų.
 
-* [v1.1](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.1) Vietoj ``` struct ``` buvo pradėta naudoti ``` class ``` tipas. Įvykdytas spartos palyginimas naudojant ``` flag'us. ```
+* [v1.1](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.1) Vietoj ``` struct ``` buvo pradėta naudoti ``` class ``` tipas. Įvykdytas spartos palyginimas naudojant ``` flag'us ```.
 
 * [v1.2](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.2) Realizuota "Rule of Three".
