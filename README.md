@@ -96,4 +96,4 @@ Realizuojant rūšiavimo algoritmą naudojant vieną konteinerį vietoj dviejų,
     
 * [v0.5](https://github.com/simces/Pazymiu_Skaiciuokle/releases/tag/v0.5) Programos spartumo patikrinimas  
 
-* [v1.0](https://github.com/simces/Pazymiu_Skaiciuokle/releases/tag/v0.5) Pridėta galimybė paleisti programą naudojant CMake, ištestuota veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų.
+* [v1.0](https://github.com/simces/Pazymiu_Skaiciuokle/releases/tag/v1.0) Pridėta galimybė paleisti programą naudojant CMake, ištestuota veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų.
