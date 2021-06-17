@@ -15,7 +15,7 @@ void input(vector<Studentas>& studentai) {
     st.setPavarde(pavarde);
 
     cout << "Toliau iveskite studento " << st.getVardas() << " " << st.getPavarde() << " prasomus duomenis" << endl;
-    cout << "Ar yra zinomas tikslus namu darbu skaicius? (Taip -t, Ne - n) : ";
+    cout << "Ar yra zinomas tikslus namu darbu skaicius? (Taip - t, Ne - n) ";
     cin >> tn;
     checkInputChar(tn);
 
@@ -29,7 +29,7 @@ void input(vector<Studentas>& studentai) {
             cin >> n;
         }
 
-        cout << "Ar norite, jog studento rezultatai butu sugeneruoti atsitiktinai? (Taip -t, Ne - n) : ";
+        cout << "Ar norite, jog studento rezultatai butu sugeneruoti atsitiktinai? (Taip - t, Ne - n) ";
         cin >> tn;
         checkInputChar(tn);
 
@@ -116,7 +116,7 @@ void input(vector<Studentas>& studentai) {
 void checkInputChar(char& tn) {
     while (tn != 't' && tn != 'n') {
         cout << "Galimas pasirinkimas tik taip(t) arba ne(n)!" << endl;
-        cout << "Pakartokite pasirinkima (Taip -t, Ne - n): ";
+        cout << "Pakartokite pasirinkima (Taip - t, Ne - n): ";
         cin >> tn;
     }
 }
@@ -200,7 +200,7 @@ void countAvg(vector<Studentas>& studentai) {
 void output(vector<Studentas>& studentai) {
     char tn;
     cout << "Pradedami isvesti duomenys..." << endl;
-    cout << "Ar norite, jog jusu galutinis rezultatas butu pazymiu mediana?(t/n): ";
+    cout << "Ar norite, jog jusu galutinis rezultatas butu pazymiu mediana? (Taip - t, Ne - n) ";
     cin >> tn;
     checkInputChar(tn);
 
@@ -342,13 +342,13 @@ void sortStudentsVector(vector<Studentas>& studentai) {
     auto it = partition(studentai.begin(), studentai.end(), mokslincius());
     moksliukai.assign(studentai.begin(), it);
     studentai.erase(studentai.begin(), it);
-    /*for(auto it = studentai.begin(); it != studentai.end(); ++it){
+   for(auto it = studentai.begin(); it != studentai.end(); ++it){
 
         if (it->vidurkis >= 5.00){
             moksliukai.push_back(*it);
             it = studentai.erase(it);
         }
-    }*/
+    }
 
     sort(moksliukai.begin(), moksliukai.end(), varduPal());
     sort(studentai.begin(), studentai.end(), varduPal());
@@ -390,13 +390,13 @@ void sortStudentsList(list<Studentas>& studentai) {
     list<Studentas> moksliukai;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    /*for(auto it = studentai.begin(); it != studentai.end(); ++it){
+    for(auto it = studentai.begin(); it != studentai.end(); ++it){
 
         if (it->vidurkis >= 5.00){
             moksliukai.push_back(*it);
             studentai.erase(it);
         }
-    }*/
+    }
 
     list<Studentas>::iterator it = studentai.begin();
     while (it != studentai.end()) {
@@ -443,13 +443,13 @@ void sortStudentsDeque(deque<Studentas>& studentai) {
     auto it = partition(studentai.begin(), studentai.end(), mokslincius());
     moksliukai.assign(studentai.begin(), it);
     studentai.erase(studentai.begin(), it);
-    /*for(auto it = studentai.begin(); it != studentai.end(); ++it){
+   for(auto it = studentai.begin(); it != studentai.end(); ++it){
 
         if (it->vidurkis >= 5.00){
             moksliukai.push_back(*it);
             it = studentai.erase(it);
         }
-    }*/
+    }
 
     sort(moksliukai.begin(), moksliukai.end(), varduPal());
     sort(studentai.begin(), studentai.end(), varduPal());
