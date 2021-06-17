@@ -74,7 +74,15 @@ Naudoto kompiuterio specifikacijos: i5-9300h 2.40 - 4.10 GHz, 16GB DDR4 RAM @266
 
 Realizuojant rūšiavimo algoritmą naudojant vieną konteinerį vietoj dviejų, ženkliai sulėtėjo ```vector``` ir ```deque``` konteinerių rūšiavimo sparta. ```list``` konteineriui tai neturėjo įtakos. Norint stabilizuoti ir paspartinti ```vector``` ir ```deque``` konteinerių rūšiavimus, buvo panaudotas ```partition``` algoritmas.
 
+## Programos veikimo spartos palyginimas naudojant "Studentas" klasę vietoj struktūros
 
+| **Vector**           | 100000   | 1000000  |
+| -------------------- |----------| ---------|
+| Struct               | 1.744s   | 17.342s  |
+| Class                | 2.155s   | 19.861s  |
+| Class(O1 flag)       | 1.212s   | 8.892s   |
+| Class(O2 flag)       | 1.296s   | 8.688s   |
+| Class(O3 flag)       | 1.287s   | 8.756s   |
 
 
 ## Versijos
@@ -97,3 +105,5 @@ Realizuojant rūšiavimo algoritmą naudojant vieną konteinerį vietoj dviejų,
 * [v0.5](https://github.com/simces/Pazymiu_Skaiciuokle/releases/tag/v0.5) Programos spartumo patikrinimas  
 
 * [v1.0](https://github.com/simces/Pazymiu_Skaiciuokle/releases/tag/v1.0) Pridėta galimybė paleisti programą naudojant CMake, ištestuota veikimo sparta naudojant vieną konteinerį rūšiavimo algoritme vietoj dviejų.
+
+* [v1.1](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.1) Vietoj ``` struct ``` buvo pradėta naudoti ``` class ``` tipas. Įvykdytas spartos palyginimas naudojant ``` flag'us ```.
