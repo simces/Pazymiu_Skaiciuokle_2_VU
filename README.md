@@ -80,9 +80,9 @@ Realizuojant rūšiavimo algoritmą naudojant vieną konteinerį vietoj dviejų,
 | -------------------- |----------| ---------|
 | Struct               | 1.744s   | 17.342s  |
 | Class                | 2.155s   | 19.861s  |
-| Class(O1 flag)       | 1.212s   | 8.892s   |
-| Class(O2 flag)       | 1.296s   | 8.688s   |
-| Class(O3 flag)       | 1.287s   | 8.756s   |
+| Class (O1 flag)      | 1.212s   | 8.892s   |
+| Class (O2 flag)      | 1.296s   | 8.688s   |
+| Class (O3 flag)      | 1.287s   | 8.756s   |
 
 
 ## Versijos
@@ -109,3 +109,5 @@ Realizuojant rūšiavimo algoritmą naudojant vieną konteinerį vietoj dviejų,
 * [v1.1](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.1) Vietoj ``` struct ``` buvo pradėta naudoti ``` class ``` tipas. Įvykdytas spartos palyginimas naudojant ``` flag'us ```.
 
 * [v1.2](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.2) Realizuota "Rule of Three".
+
+* [v1.5](https://github.com/simces/Pazymiu_Skaiciuokle_2/releases/tag/v1.5) Sukurta bazinė abstrakčioji ir išvestinė klasės.
