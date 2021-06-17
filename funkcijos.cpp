@@ -1,7 +1,6 @@
 #include "funkcijos.h"
 
-
-void input(vector<Studentas>& studentai) {
+void input(vector<Studentas> &studentai){
     Studentas st;
     string vardas, pavarde;
     int n = 0;
@@ -16,14 +15,14 @@ void input(vector<Studentas>& studentai) {
     st.setPavarde(pavarde);
 
     cout << "Toliau iveskite studento " << st.getVardas() << " " << st.getPavarde() << " prasomus duomenis" << endl;
-    cout << "Ar yra zinomas tikslus namu darbu skaicius?(t/n): ";
+    cout << "Ar yra zinomas tikslus namu darbu skaicius? (Taip - t, Ne - n): ";
     cin >> tn;
     checkInputChar(tn);
 
-    if (tn == 't') {
+    if(tn == 't'){
         cout << "Iveskite tikslu namu darbu skaiciu: ";
         cin >> n;
-        while (cin.fail()) {
+        while(cin.fail()){
             cout << "Turite ivesti skaiciu: ";
             cin.clear();
             cin.ignore(256, '\n');
@@ -34,23 +33,22 @@ void input(vector<Studentas>& studentai) {
         cin >> tn;
         checkInputChar(tn);
 
-        if (tn == 't') {
-            for (int i = 0; i < n; i++) {
+        if(tn == 't'){
+            for(int i = 0; i < n; i++){
                 st.setPazymys(rand() % 10 + 1);
-                cout << i + 1 << "-ojo namu darbo rezultatas: " << st.getPazymiai()[i] << endl;
+                cout << i+1 << "-ojo namu darbo rezultatas: " << st.getPazymiai()[i] << endl;
             }
 
             st.setEgz(rand() % 10 + 1);
             cout << "Egzamino rezultatas: " << st.getEgzaminas() << endl;
             studentai.push_back(st);
-        }
-        else {
-            for (int i = 0; i < n; i++) {
+        } else {
+            for(int i = 0; i < n; i++){
                 int input;
-                cout << "Iveskite " << i + 1 << "-ojo namu darbo rezultata: ";
+                cout << "Iveskite " << i+1 << "-ojo namu darbo rezultata: ";
                 cin >> input;
 
-                while (input < 0 || input > 10 || cin.fail()) {
+                while(input < 0 || input > 10 || cin.fail()){
                     cin.clear();
                     cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
                     cin >> input;
@@ -62,7 +60,7 @@ void input(vector<Studentas>& studentai) {
             int egzas;
             cin >> egzas;
 
-            while (egzas < 0 || egzas > 10 || cin.fail()) {
+            while(egzas < 0 || egzas > 10 || cin.fail()){
                 cin.clear();
                 cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
                 cin >> egzas;
@@ -71,16 +69,15 @@ void input(vector<Studentas>& studentai) {
             st.setEgz(egzas);
             studentai.push_back(st);
         }
-    }
-    else {
+    } else {
         cout << "Noredami sustabdyti namu darbu ivedima irasykite 0" << endl;
 
-        while (true) {
-            cout << "Iveskite " << n + 1 << "-ojo namu darbo rezultata: ";
+        while(true){
+            cout << "Iveskite " << n+1 << "-ojo namu darbo rezultata: ";
             int input;
             cin >> input;
-
-            while (input < 0 || input > 10 || cin.fail()) {
+            
+            while(input < 0 || input > 10 || cin.fail()){
                 cin.clear();
                 cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
                 cin >> input;
@@ -88,13 +85,13 @@ void input(vector<Studentas>& studentai) {
 
             st.setPazymys(input);
 
-            if (input == 0 && n > 0) {
+            if(input == 0 && n > 0){
                 st.getPazymiai().pop_back();
                 cout << "Iveskite egzamino rezultata: ";
                 int egzas;
                 cin >> egzas;
 
-                while (egzas < 0 || egzas > 10 || cin.fail()) {
+                while(egzas < 0 || egzas > 10 || cin.fail()){
                     cin.clear();
                     cout << "Ivedete netinkama reiksme, iveskite rezultata is naujo (1-10): ";
                     cin >> egzas;
@@ -104,25 +101,23 @@ void input(vector<Studentas>& studentai) {
                 studentai.push_back(st);
                 break;
 
-            }
-            else if (st.getPazymiai().size() == 0 && n == 0) {
+            } else if(st.getPazymiai().size() == 0 && n ==0){
                 cout << "Turi buti ivestas bent vienas namu darbo rezultatas!" << endl;
-            }
-            else n++;
+            } else n++;
         }
 
     }
 };
 
-void checkInputChar(char& tn) {
-    while (tn != 't' && tn != 'n') {
+void checkInputChar(char &tn){
+    while(tn != 't' && tn != 'n'){
         cout << "Galimas pasirinkimas tik taip(t) arba ne(n)!" << endl;
         cout << "Pakartokite pasirinkima (Taip - t, Ne - n): ";
         cin >> tn;
     }
 }
 
-void readFile(vector<Studentas>& studentai) {
+void readFile(vector<Studentas> &studentai){
     Studentas student;
     string line, vardas, pavarde;
     vector<int> grades;
@@ -133,11 +128,11 @@ void readFile(vector<Studentas>& studentai) {
     {
         string pavadinimas = "kursiokai.txt";
         input.open(pavadinimas);
-        if (!input.is_open())
+        if(!input.is_open())
             throw 1;
         else cout << "Failas atidarytas..." << endl;
     }
-    catch (int error)
+    catch(int error)
     {
         std::cout << "Failas nerastas... Patikrinkite ar failo teisingas failo pavadinimas ir formatas (kursiokai.txt)" << endl;
         cout << "Programa stabdoma";
@@ -148,85 +143,83 @@ void readFile(vector<Studentas>& studentai) {
 
     try
     {
-        while (true) {
-            input >> vardas >> pavarde;
-            getline(input, line);
+        while(true){
+        input >> vardas >> pavarde;
+        getline(input, line);
 
-            stringstream ndpazymiai(line);
-            int n;
-            while (ndpazymiai >> n) {
-                grades.push_back(n);
-            }
+        stringstream ndpazymiai(line);
+        int n;
+        while(ndpazymiai >> n){
+            grades.push_back(n);
+        }
 
-            grades.pop_back();
-            student.setEgz(n);
-            student.setVardas(vardas);
-            student.setPavarde(pavarde);
-            student.setPazymiai(grades);
-            studentai.push_back(student);
-            grades.clear();
+        grades.pop_back();
+        student.setEgz(n);
+        student.setVardas(vardas);
+        student.setPavarde(pavarde);
+        student.setPazymiai(grades);
+        studentai.push_back(student);
+        grades.clear();
 
-            if (input.eof())
-                break;
+        if(input.eof())
+            break;
         }
     }
-    catch (std::bad_alloc& exception)
+    catch(std::bad_alloc& exception)
     {
         std::cout << "Faile yra klaidu" << endl;
         input.ignore(256, '\n');
     }
+    
 
-
-    //
     input.close();
 };
 
-bool palyginimas(const Studentas& pirmas, const Studentas& antras) {
-    if (pirmas.getPavarde() == antras.getPavarde()) return pirmas.getVardas() < antras.getVardas();
+bool palyginimas(const Studentas& pirmas, const Studentas& antras){
+    if(pirmas.getPavarde() == antras.getPavarde()) return pirmas.getVardas() < antras.getVardas();
     return pirmas.getPavarde() < antras.getPavarde();
 };
 
-void countAvg(vector<Studentas>& studentai) {
-    for (int i = 0; i < studentai.size(); i++) {
-        double galutinisvid = 0;
+void countAvg(vector<Studentas> &studentai){
+    for(int i = 0; i < studentai.size(); i++){
+            double galutinisvid = 0;
 
-        for (int j = 0; j < studentai[i].getPazymiai().size(); j++)
-            galutinisvid += studentai[i].getPazymiai()[j];
+            for(int j = 0; j < studentai[i].getPazymiai().size(); j++)
+                galutinisvid += studentai[i].getPazymiai()[j];
 
-        galutinisvid = galutinisvid / studentai[i].getPazymiai().size();
-        studentai[i].setVidurkis(galutinisvid * 0.4 + studentai[i].getEgzaminas() * 0.6);
+            galutinisvid = galutinisvid / studentai[i].getPazymiai().size();
+            studentai[i].setVidurkis(galutinisvid * 0.4 + studentai[i].getEgzaminas() * 0.6);
     }
 }
 
-void output(vector<Studentas>& studentai) {
+void output(vector<Studentas> &studentai){
     char tn;
     cout << "Pradedami isvesti duomenys..." << endl;
-    cout << "Ar norite, jog jusu galutinis rezultatas butu pazymiu mediana?(t/n): ";
+    cout << "Ar norite, jog jusu galutinis rezultatas butu pazymiu mediana? (Taip - t, Ne - n): ";
     cin >> tn;
     checkInputChar(tn);
-
-    if (tn == 'n') {
+        
+    if(tn == 'n'){
         cout << left << setw(20) << "Pavarde"
-            << setw(15) << "Vardas"
-            << setw(10) << "Galutinis (Vid.)" << endl;
+             << setw(15) << "Vardas"
+             << setw(10) << "Galutinis (Vid.)" << endl;
         cout << string(65, '-') << endl;
-
+            
         countAvg(studentai);
-        for (int i = 0; i < studentai.size(); i++) {
+        for(int i = 0; i < studentai.size(); i++){
 
             cout << left << setw(20) << studentai[i].getPavarde()
-                << setw(15) << studentai[i].getVardas()
-                << setw(10) << setprecision(2) << studentai[i].getVidurkis() << endl;
+                 << setw(15) << studentai[i].getVardas()
+                 << setw(10) << setprecision(2) << studentai[i].getVidurkis() << endl;
         }
+            
+    } else {
+            cout << left << setw(20) << "Pavarde"
+                 << setw(15) << "Vardas"
+                 << setw(10) << "Galutinis (Med.)" << endl;
+            cout << string(65, '-') << endl;
 
-    }
-    else {
-        cout << left << setw(20) << "Pavarde"
-            << setw(15) << "Vardas"
-            << setw(10) << "Galutinis (Med.)" << endl;
-        cout << string(65, '-') << endl;
-
-        for (int i = 0; i < studentai.size(); i++) {
+        for(int i = 0; i < studentai.size(); i++){
             sort(studentai[i].getPazymiai().begin(), studentai[i].getPazymiai().end());
 
             double mediana = 0;
@@ -239,27 +232,27 @@ void output(vector<Studentas>& studentai) {
             double galutinis = mediana * 0.4 + studentai[i].getEgzaminas() * 0.6;
 
             cout << left << setw(20) << studentai[i].getPavarde()
-                << setw(15) << studentai[i].getVardas()
-                << setw(10) << setprecision(2) << galutinis << endl;
+                 << setw(15) << studentai[i].getVardas()
+                 << setw(10) << setprecision(2) << galutinis << endl;
         }
     }
 }
 
-int generationNumber() {
+int generationNumber(){
     int skaicius;
     char tn;
     cout << "Pasirinkite kiek studentu generuoti: " << endl
-        << "(1) 1000" << endl
-        << "(2) 10000" << endl
-        << "(3) 100000" << endl
-        << "(4) 1000000" << endl
-        << "(5) 10000000" << endl;
+         << "(1) 1000" << endl
+         << "(2) 10000" << endl
+         << "(3) 100000" << endl
+         << "(4) 1000000" << endl
+         << "(5) 10000000" << endl;
     cin >> skaicius;
     int number;
-    while (true) {
+    while(true){
         switch (skaicius)
         {
-
+        
         case 1:
             number = 1000;
             generateFile(number);
@@ -275,13 +268,13 @@ int generationNumber() {
         case 3:
             number = 100000;
             generateFile(number);
-
+            
             break;
 
         case 4:
             number = 1000000;
             generateFile(number);
-
+            
             break;
 
         case 5:
@@ -289,7 +282,7 @@ int generationNumber() {
             generateFile(number);
 
             break;
-
+            
         default:
         {
             cout << "Blogas pasirinkimas. Galimi pasirinkimai nuo 1 iki 7";
@@ -297,12 +290,12 @@ int generationNumber() {
             continue;
         }
         }
-        break;
+    break;
     }
     return number;
 }
 
-void generateFile(int numberStudents) {
+void generateFile(int numberStudents){
 
     string file;
     int kieknd = rand() % 10 + 5;
@@ -315,19 +308,19 @@ void generateFile(int numberStudents) {
     generate.open(file);
 
     generate << left << setw(20) << "Vardas" << setw(20) << "Pavarde";
-    for (int i = 0; i < kieknd; i++) {
+    for (int i = 0; i < kieknd; i++){
         generate << setw(7) << "ND" + to_string(i + 1);
     };
     generate << setw(7) << "Egz." << endl;
 
-    for (int i = 0; i < numberStudents; i++) {
+    for(int i = 0; i < numberStudents; i++){
         generate << left << setw(20) << "Vardas" + to_string(i + 1) << setw(20) << "Pavarde" + to_string(i + 1);
-
-        for (int j = 0; j < kieknd; j++) {
+        
+        for (int j = 0; j < kieknd; j++){
             generate << setw(7) << rand() % 10 + 1;
         }
         generate << setw(7) << rand() % 10 + 1;
-        if (i != numberStudents - 1) generate << endl;
+        if(i != numberStudents - 1) generate << endl;
     }
 
     generate.close();
@@ -336,17 +329,17 @@ void generateFile(int numberStudents) {
 };
 
 
-void sortStudentsVector(vector<Studentas>& studentai) {
+void sortStudentsVector(vector<Studentas> &studentai){
     vector<Studentas> moksliukai;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
     auto it = partition(studentai.begin(), studentai.end(), mokslincius());
     moksliukai.assign(studentai.begin(), it);
     studentai.erase(studentai.begin(), it);
- 
+    
     sort(moksliukai.begin(), moksliukai.end(), varduPal());
     sort(studentai.begin(), studentai.end(), varduPal());
-
+    
 
     cout << moksliukai.size() + studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
 
@@ -358,9 +351,9 @@ void sortStudentsVector(vector<Studentas>& studentai) {
 
     moksl << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for (int i = 0; i < moksliukai.size(); i++) {
+    for(int i = 0; i < moksliukai.size(); i++){
         moksl << left << setw(20) << moksliukai[i].getVardas() << setw(20) << moksliukai[i].getPavarde() << setw(10) << setprecision(3) << moksliukai[i].getVidurkis();
-        if (i != moksliukai.size() - 1) moksl << endl;
+        if(i != moksliukai.size() - 1) moksl << endl;
     }
     moksl.close();
 
@@ -369,9 +362,9 @@ void sortStudentsVector(vector<Studentas>& studentai) {
 
     nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for (int i = 0; i < studentai.size(); i++) {
+    for(int i = 0; i < studentai.size(); i++){
         nepat << left << setw(20) << studentai[i].getVardas() << setw(20) << studentai[i].getPavarde() << setw(10) << setprecision(3) << studentai[i].getVidurkis();
-        if (i != studentai.size() - 1) nepat << endl;
+        if(i != studentai.size() - 1) nepat << endl;
     }
     nepat.close();
 
@@ -380,19 +373,17 @@ void sortStudentsVector(vector<Studentas>& studentai) {
 
 
 
-void sortStudentsList(list<Studentas>& studentai) {
+void sortStudentsList(list<Studentas> &studentai){
     list<Studentas> moksliukai;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-    
 
-    list<Studentas>::iterator it = studentai.begin();
+    list<Studentas>::iterator it = studentai.begin(); 
     while (it != studentai.end()) {
         if (it->getVidurkis() >= 5.00) {
             moksliukai.push_back(*it);
             it = studentai.erase(it);
-        }
-        else
+        } else
             ++it;
     }
     cout << moksliukai.size() + studentai.size() << " studentu rusiavimas baigtas ir uztruko " << t.elapsed() << "s" << endl << endl;
@@ -405,7 +396,7 @@ void sortStudentsList(list<Studentas>& studentai) {
 
     moksl << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for (auto it = moksliukai.begin(); it != moksliukai.end(); it++) {
+    for(auto it = moksliukai.begin(); it != moksliukai.end(); it++){
         moksl << left << setw(20) << it->getVardas() << setw(20) << it->getPavarde() << setw(10) << setprecision(3) << it->getVidurkis() << endl;
     }
     moksl.close();
@@ -415,7 +406,7 @@ void sortStudentsList(list<Studentas>& studentai) {
 
     nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for (auto it = studentai.begin(); it != studentai.end(); it++) {
+    for(auto it = studentai.begin(); it != studentai.end(); it++){
         nepat << left << setw(20) << it->getVardas() << setw(20) << it->getPavarde() << setw(10) << setprecision(3) << it->getVardas() << endl;
     }
     nepat.close();
@@ -423,15 +414,14 @@ void sortStudentsList(list<Studentas>& studentai) {
     cout << moksliukai.size() + studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
 };
 
-void sortStudentsDeque(deque<Studentas>& studentai) {
+void sortStudentsDeque(deque<Studentas> &studentai){
     deque<Studentas> moksliukai;
     cout << "Pradedamas studentu rusiavimas..." << endl;
     Timer t;
-
+    
     auto it = partition(studentai.begin(), studentai.end(), mokslincius());
     moksliukai.assign(studentai.begin(), it);
     studentai.erase(studentai.begin(), it);
-    
 
     sort(moksliukai.begin(), moksliukai.end(), varduPal());
     sort(studentai.begin(), studentai.end(), varduPal());
@@ -446,9 +436,9 @@ void sortStudentsDeque(deque<Studentas>& studentai) {
 
     moksl << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for (int i = 0; i < moksliukai.size(); i++) {
+    for(int i = 0; i < moksliukai.size(); i++){
         moksl << left << setw(20) << moksliukai[i].getVardas() << setw(20) << moksliukai[i].getPavarde() << setw(10) << setprecision(3) << moksliukai[i].getVidurkis();
-        if (i != moksliukai.size() - 1) moksl << endl;
+        if(i != moksliukai.size() - 1) moksl << endl;
     }
     moksl.close();
 
@@ -457,30 +447,30 @@ void sortStudentsDeque(deque<Studentas>& studentai) {
 
     nepat << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(10) << "Vidurkis" << endl;
 
-    for (int i = 0; i < studentai.size(); i++) {
+    for(int i = 0; i < studentai.size(); i++){
         nepat << left << setw(20) << studentai[i].getVardas() << setw(20) << studentai[i].getPavarde() << setw(10) << setprecision(3) << studentai[i].getVidurkis();
-        if (i != studentai.size() - 1) nepat << endl;
+        if(i != studentai.size() - 1) nepat << endl;
     }
     nepat.close();
 
     cout << moksliukai.size() + studentai.size() << " studentu isvedimas baigtas ir uztruko " << t.elapsed() << "s" << endl;
 };
 
-int whichRead() {
+int whichRead(){
     int skaicius;
     char tn;
     cout << "Pasirinkite kuri studentu faila nuskaityti: " << endl
-        << "(1) studentai1000.txt" << endl
-        << "(2) studentai10000.txt" << endl
-        << "(3) studentai100000.txt" << endl
-        << "(4) studentai1000000.txt" << endl
-        << "(5) studentai10000000.txt" << endl;
+         << "(1) studentai1000.txt" << endl
+         << "(2) studentai10000.txt" << endl
+         << "(3) studentai100000.txt" << endl
+         << "(4) studentai1000000.txt" << endl
+         << "(5) studentai10000000.txt" << endl;
     cin >> skaicius;
     int number;
-    while (true) {
+    while(true){
         switch (skaicius)
         {
-
+        
         case 1:
             number = 1000;
 
@@ -493,19 +483,19 @@ int whichRead() {
 
         case 3:
             number = 100000;
-
+            
             break;
 
         case 4:
             number = 1000000;
-
+            
             break;
 
         case 5:
             number = 10000000;
 
             break;
-
+            
         default:
         {
             cout << "Blogas pasirinkimas. Galimi pasirinkimai nuo 1 iki 7";
@@ -513,7 +503,7 @@ int whichRead() {
             continue;
         }
         }
-        break;
+    break;
     }
     return number;
 }
